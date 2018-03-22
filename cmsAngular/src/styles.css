@@ -1,0 +1,29 @@
+nav.admin{
+  background: #24478f !important;
+  width: 150px !important;
+  height: 80px !important;
+  color: aliceblue !important;
+  position: fixed !important;
+  top: 60px;
+  left:0;
+  margin-bottom: 0;
+  /* border: 1px #333 solid; */
+ z-index: 1;
+}
+
+nav.admin li {
+  float: none;
+}
+
+nav.admin ul {
+  display:block !important;
+}
+
+nav.admin li a {
+  color: #fff !important;
+  font-weight: bold;
+}
+
+div.space {
+  padding-left: 180px;
+}

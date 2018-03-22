@@ -1,0 +1,26 @@
+<!-- messages -->
+<div class="alert alert-success" *ngIf="successMsg">
+  <p>Sidebar updated</p>
+</div>
+
+
+<a routerLink="/admin/pages" class="btn btn-link">
+  <i class="fa fa-arrow-circle-o-left"></i> Back To Pages
+</a>
+<br>  
+<h1 class="page-title">Edit Sidebar</h1>
+<br>
+<br>
+
+<!-- form -->
+<form #editSidebarForm="ngForm" (ngSubmit)="onSubmit(editSidebarForm)">
+
+  <div class="form-group">
+    <label for="">Content: </label>
+    <textarea name="content" cols="30" rows="10" class="form-control" placeholder="Content" [(ngModel)]="content"></textarea>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-default btn-block" [disabled]="!editSidebarForm.valid">Edit Sidebar</button>
+  </div>
+</form>

@@ -1,0 +1,20 @@
+<div class="row" *ngIf="hasSidebar">
+  <div class="col-md-8">
+   <!-- remove html tags from content -->
+   <div [innerHTML]="pageBody?.content"></div>
+    <div>
+      
+    </div>
+  </div>
+  <div class="col-md-4">
+    <!-- remove html tags from content -->
+    <div [innerHTML]="sidebar"></div>
+  </div>
+</div>
+
+<div class="row" *ngIf="!hasSidebar">
+  <div class="col-md-12">
+    <!-- remove html tags from content -->
+    <div [innerHTML]="pageBody?.content"></div>
+  </div>
+</div>

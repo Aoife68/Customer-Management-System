@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark  mb-4">
+  <div class="container">
+    <a routerLink="/" class="navbar-brand">CMS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <!--Left side Link-->
+      <ul class="navbar-nav mr-auto">
+        <ng-container *ngFor="let page of pages?.value">
+          <li *ngIf="page.slug!=='home'" class="nav-item">
+            <a routerLink="/{{page.slug}}" class="nav-link">{{page.title}}</a>
+          </li>
+        </ng-container>
+      </ul>
+      <ul *ngIf="!userLoggedIn" class="navbar-nav ml-auto">
+          <li class="nav-item"><a routerLink="/register" class="nav-link">Register</a></li>
+          <li class="nav-item"><a routerLink="/login" class="nav-link">Login</a></li>
+      </ul>
+      <ul *ngIf="userLoggedIn" class="navbar-nav ml-auto">
+        <li class="nav-item"><a routerLink="/logout" class="nav-link">{{user}}, Logout</a></li>
+    </ul>
+    </div>
+  </div>
+</nav>

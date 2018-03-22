@@ -1,0 +1,54 @@
+<!-- messages -->
+<div class="alert alert-success" *ngIf="successMsg">
+  <p>Page has been updated</p>
+</div>
+
+<div class="alert alert-danger" *ngIf="errorMsg">
+  <p>Page title exists choose another</p>
+</div>
+
+<div class="alert alert-danger" *ngIf="editProblemMsg">
+  <p>Problem editing page, try later</p>
+</div>
+
+<a routerLink="/admin/pages" class="btn btn-link">
+  <i class="fa fa-arrow-circle-o-left"></i> Back To Pages
+</a>
+<br>  
+<h1 class="page-title">Edit {{page?.title}} page</h1>
+<br>
+<br>
+
+<!-- form -->
+<form #editPageForm="ngForm" (ngSubmit)="onSubmit(editPageForm)">
+
+  <div class="form-group">
+    <label for="title">Title: </label>
+    <input type="text" class="form-control" placeholder="Title" name="title" [(ngModel)]="title" #pageTitle="ngModel" minlength="3"
+      required>
+  </div>
+
+  <div class="alert alert-danger" *ngIf="pageTitle.errors?.required && pageTitle.touched">
+    Title is required.
+  </div>
+  <div class="alert alert-danger" *ngIf="pageTitle.errors?.minlength && pageTitle.touched">
+    Must be at least 3 characters.
+  </div>
+   <div class="form-group">
+    <label for="">Content: </label>
+    <textarea name="content" cols="30" rows="10" class="form-control" placeholder="Content" [(ngModel)]="content"></textarea>
+  </div>
+
+  <input type="hidden" name="id" [(ngModel)]="id">
+
+    <!-- option to add sidebar -->
+    <div class="form-group">
+      <label for="">Has Sidebar
+        <input type="checkbox" name="hasSidebar" [checked]="sidebar" [(ngModel)]="hasSidebar">      
+      </label>
+    </div>
+
+  <div class="form-group">
+    <button class="btn btn-default btn-block" [disabled]="!editPageForm.valid">Edit Page</button>
+  </div>
+</form>
